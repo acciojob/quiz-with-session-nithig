@@ -42,7 +42,7 @@ function renderQuestions() {
     const qDiv = document.createElement("div");
 
     const qText = document.createElement("p");
-    qText.textContent = `${index + 1}. ${q.question}`;
+    qText.textContent = `${q.question}`;
     qDiv.appendChild(qText);
 
     q.choices.forEach((choice) => {
@@ -55,8 +55,9 @@ function renderQuestions() {
 
       // restore selected choice
       if (userAnswers[index] === choice) {
-        radio.checked = true;
-      }
+		radio.defaultChecked = true; // important for Cypress
+		}
+
 
       // save answer on click
       radio.addEventListener("change", () => {
