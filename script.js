@@ -56,6 +56,8 @@ function renderQuestions() {
       // restore selected choice
       if (userAnswers[index] === choice) {
 		radio.defaultChecked = true; // important for Cypress
+		radio.setAttribute("checked", "true");
+
 		}
 
 
